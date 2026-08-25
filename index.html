@@ -211,6 +211,51 @@
       font-size: 0.9rem;
       opacity: 0.8;
     }
+    /* Раздел навыков */
+    .skills-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 40px;
+    }
+    .skill-item {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(5px);
+      border-radius: 15px;
+      padding: 20px;
+      width: 160px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .skill-item:hover {
+      transform: translateY(-5px);
+    }
+    .skill-icon {
+      width: 60px;
+      height: 60px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 10px;
+      font-size: 24px;
+    }
+    .skill-item p {
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+    .skills-subtitle {
+      font-size: 1.3rem;
+      margin: 40px 0 20px;
+      opacity: 0.9;
+    }
     @media (max-width: 768px) {
       .menu-btn {
         display: block;
@@ -239,6 +284,9 @@
         justify-content: center;
         flex: none;
       }
+      .skill-item {
+        width: 130px;
+      }
     }
   </style>
 </head>
@@ -256,6 +304,7 @@
     <button class="menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</button>
     <ul class="nav-links">
       <li><a href="#about">О себе</a></li>
+      <li><a href="#skills">Навыки</a></li>
       <li><a href="#works">Мои работы</a></li>
       <li><a href="#contacts">Контакты</a></li>
     </ul>
@@ -265,7 +314,7 @@
     <h1>Привет, я Павел</h1>
     <p>3D artist, Texture (shading) artist.</p>
     
-    <!-- Новый блок "Обо мне" -->
+    <!-- Блок "Обо мне" -->
     <div style="margin-top: 60px; width: 100%;">
       <h2>Обо мне</h2>
       <p style="font-size: 1.5rem; margin-bottom: 30px;">Павел Орлов</p>
@@ -282,6 +331,60 @@
             <h3>Full-length</h3>
             <p>cartoon & Gamedev</p>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Новый раздел "Навыки" -->
+  <section id="skills" class="fade-in">
+    <h2>Soft and Competencies</h2>
+    <div class="skills-container">
+      <p class="skills-subtitle">Программное обеспечение</p>
+      <div class="skills-grid">
+        <div class="skill-item">
+          <div class="skill-icon">M</div>
+          <p>Maya</p>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">B</div>
+          <p>Blender 3D</p>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">SP</div>
+          <p>Substance 3D Painter</p>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">SD</div>
+          <p>Substance 3D Designer</p>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">MT</div>
+          <p>Marmoset Toolbag</p>
+        </div>
+      </div>
+
+      <p class="skills-subtitle">Компетенции</p>
+      <div class="skills-grid">
+        <div class="skill-item">
+          <div class="skill-icon">🔷</div>
+          <p>Modelling</p>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">🎨</div>
+          <p>Texturing</p>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">✨</div>
+          <p>Shading</p>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">💡</div>
+          <p>Lighting</p>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">🎬</div>
+          <p>Render</p>
         </div>
       </div>
     </div>
