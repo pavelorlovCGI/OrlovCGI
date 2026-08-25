@@ -39,13 +39,12 @@
       backdrop-filter: blur(10px);
       padding: 15px 30px;
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
       z-index: 100;
     }
     .logo {
-      font-weight: 700;
-      font-size: 1.5rem;
+      display: none;
     }
     .nav-links {
       display: flex;
@@ -280,6 +279,9 @@
       .menu-btn {
         display: block;
       }
+      nav {
+        justify-content: space-between;
+      }
       .nav-links {
         display: none;
         flex-direction: column;
@@ -324,7 +326,6 @@
   </div>
 
   <nav>
-    <div class="logo">Портфолио</div>
     <button class="menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</button>
     <ul class="nav-links">
       <li><a href="#about">О себе</a></li>
