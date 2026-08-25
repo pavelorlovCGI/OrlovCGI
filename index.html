@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Портфолио</title>
+  <title>Павел Орлов</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * {
@@ -14,6 +14,13 @@
     body {
       font-family: 'Montserrat', sans-serif;
       background-image: 
+        linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.05) 0%,
+          transparent 15%,
+          transparent 85%,
+          rgba(255, 255, 255, 0.05) 100%
+        ),
         linear-gradient(rgba(26, 26, 46, 0.75), rgba(26, 26, 46, 0.75)),
         url('background.jpg');
       background-size: cover;
@@ -210,7 +217,7 @@
       font-size: 0.9rem;
       opacity: 0.8;
     }
-    /* Раздел навыков */
+    /* Skills andCompetencies */
     .skills-container {
       max-width: 1000px;
       margin: 0 auto;
@@ -306,7 +313,7 @@
   </div>
 
   <nav>
-    <div class="logo">Портфолио</div>
+    <div class="logo">Павел Орлов</div>
     <button class="menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</button>
     <ul class="nav-links">
       <li><a href="#about">О себе</a></li>
@@ -326,7 +333,7 @@
       <p style="font-size: 1.5rem; margin-bottom: 30px;">Павел Орлов</p>
       <div class="about-container">
         <div class="about-text">
-          <p>Всем привет, я швейцарский нож в вашей команде, выполняю любые задачи по текстурингу, шейдингу, лайтингу сцен. Имею опыт в 4 года (из них 2 года в мультипликационной студии). Работал над полным метром, мультсериалами, так же был опыт работы в геймдев индустрии (инди). Главное мое преимущество — строгое соблюдение дедлайнов, внимание к деталям, умение найти общий язык с любым человеком. Имею опыт удалённой работы.</p>
+          <p>Мой путь в 3D-графике длится более 4 лет, из них 2 года я успешно работаю на коммерческой основе. Прошел через создание полнометражной анимации и эпизодов для сериалов, а также развивался в инди-геймдеве на позиции Generalist. Мой стек: Modelling, Texturing, Shading, Lighting и Render. Убежден, что невыполнимых задач не существует — главное системный подход. Могу похвастаться жестким контролем качества и своевременной сдачей проектов при любом формате занятости (включая удаленку).</p>
         </div>
         <div class="about-stats">
           <div class="stat-box">
@@ -335,7 +342,7 @@
           </div>
           <div class="stat-box">
             <h3>Full-length</h3>
-            <p>cartoon & Gamedev</p>
+            <p>Cartoon & Gamedev</p>
           </div>
         </div>
       </div>
@@ -346,7 +353,7 @@
   <section id="skills" class="fade-in">
     <h2>Soft and Competencies</h2>
     <div class="skills-container">
-      <p class="skills-subtitle">Программное обеспечение</p>
+      <p class="skills-subtitle">Soft</p>
       <div class="skills-grid">
         <div class="skill-item">
           <div class="skill-icon">
@@ -380,7 +387,7 @@
         </div>
       </div>
 
-      <p class="skills-subtitle">Компетенции</p>
+      <p class="skills-subtitle">Competencies</p>
       <div class="skills-grid">
         <div class="skill-item">
           <div class="skill-icon">🔷</div>
@@ -407,15 +414,15 @@
   </section>
 
   <section id="works" class="fade-in">
-    <h2>Мои работы</h2>
+    <h2>My Works</h2>
     <div class="cards">
       <div class="card">
-        <h3>Рейхстаг</h3>
+        <h3>Reichstag</h3>
         <p>Texturing, Shading, Lighting</p>
         <img src="1-compressed.png" alt="Рейхстаг" style="width:100%; border-radius:10px; cursor:pointer;" onclick="openSectionGallery('reichstag')">
       </div>
       <div class="card">
-        <h3>Пропсы</h3>
+        <h3>Props</h3>
         <p>Texturing</p>
         <img src="1.jpg" alt="Пропсы" style="width:100%; border-radius:10px; cursor:pointer;" onclick="openSectionGallery('props')">
       </div>
