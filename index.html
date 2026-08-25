@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Павел Орлов</title>
+  <title>Портфолио</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * {
@@ -217,7 +217,7 @@
       font-size: 0.9rem;
       opacity: 0.8;
     }
-    /* Skills andCompetencies */
+    /* Раздел навыков */
     .skills-container {
       max-width: 1000px;
       margin: 0 auto;
@@ -313,7 +313,7 @@
   </div>
 
   <nav>
-    <div class="logo">Павел Орлов</div>
+    <div class="logo">Портфолио</div>
     <button class="menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</button>
     <ul class="nav-links">
       <li><a href="#about">О себе</a></li>
@@ -333,7 +333,7 @@
       <p style="font-size: 1.5rem; margin-bottom: 30px;">Павел Орлов</p>
       <div class="about-container">
         <div class="about-text">
-          <p>Мой путь в 3D-графике длится более 4 лет, из них 2 года я успешно работаю на коммерческой основе. Прошел через создание полнометражной анимации и эпизодов для сериалов, а также развивался в инди-геймдеве на позиции Generalist. Мой стек: Modelling, Texturing, Shading, Lighting и Render. Убежден, что невыполнимых задач не существует. Главное - системный подход. Могу похвастаться жестким контролем качества и своевременной сдачей проектов при любом формате занятости (включая удаленку).</p>
+          <p>Всем привет, я швейцарский нож в вашей команде, выполняю любые задачи по текстурингу, шейдингу, лайтингу сцен. Имею опыт в 4 года (из них 2 года в мультипликационной студии). Работал над полным метром, мультсериалами, так же был опыт работы в геймдев индустрии (инди). Главное мое преимущество — строгое соблюдение дедлайнов, внимание к деталям, умение найти общий язык с любым человеком. Имею опыт удалённой работы.</p>
         </div>
         <div class="about-stats">
           <div class="stat-box">
@@ -342,7 +342,7 @@
           </div>
           <div class="stat-box">
             <h3>Full-length</h3>
-            <p>Cartoon & Gamedev</p>
+            <p>cartoon & Gamedev</p>
           </div>
         </div>
       </div>
@@ -353,7 +353,7 @@
   <section id="skills" class="fade-in">
     <h2>Soft and Competencies</h2>
     <div class="skills-container">
-      <p class="skills-subtitle">Soft</p>
+      <p class="skills-subtitle">Программное обеспечение</p>
       <div class="skills-grid">
         <div class="skill-item">
           <div class="skill-icon">
@@ -387,7 +387,7 @@
         </div>
       </div>
 
-      <p class="skills-subtitle">Competencies</p>
+      <p class="skills-subtitle">Компетенции</p>
       <div class="skills-grid">
         <div class="skill-item">
           <div class="skill-icon">🔷</div>
@@ -414,17 +414,27 @@
   </section>
 
   <section id="works" class="fade-in">
-    <h2>My Works</h2>
+    <h2>Мои работы</h2>
     <div class="cards">
       <div class="card">
-        <h3>Reichstag</h3>
+        <h3>Рейхстаг</h3>
         <p>Texturing, Shading, Lighting</p>
         <img src="1-compressed.png" alt="Рейхстаг" style="width:100%; border-radius:10px; cursor:pointer;" onclick="openSectionGallery('reichstag')">
       </div>
       <div class="card">
-        <h3>Props</h3>
+        <h3>Пропсы</h3>
         <p>Texturing</p>
         <img src="1.jpg" alt="Пропсы" style="width:100%; border-radius:10px; cursor:pointer;" onclick="openSectionGallery('props')">
+      </div>
+      <div class="card">
+        <h3>Gamedev</h3>
+        <p>Game Development</p>
+        <img src="main_logo.jpg" alt="Gamedev" style="width:100%; border-radius:10px; cursor:pointer;" onclick="openSectionGallery('gamedev')">
+      </div>
+      <div class="card">
+        <h3>Render</h3>
+        <p>Rendering</p>
+        <img src="Render1.jpg" alt="Render" style="width:100%; border-radius:10px; cursor:pointer;" onclick="openSectionGallery('render')">
       </div>
       <div class="card">
         <h3>Lighting and Render</h3>
@@ -463,6 +473,21 @@
         'p3.PNG',
         'p4.PNG',
         'p5.PNG'
+      ],
+      gamedev: [
+        'main_logo.jpg',
+        'Render1.jpg',
+        'Render2.jpg',
+        'Render3.jpg',
+        'Render4.jpg',
+        'Render5.jpg'
+      ],
+      render: [
+        'Render1.jpg',
+        'Render2.jpg',
+        'Render3.jpg',
+        'Render4.jpg',
+        'Render5.jpg'
       ],
       lighting: [
         '363170.png',
