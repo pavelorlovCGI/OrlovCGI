@@ -1,4 +1,198 @@
-<nav> — меню с якорями
-<section id="about"> — о себе
-<section id="works"> — портфолио
-<section id="contacts"> — контакты
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Портфолио</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+    .nav-links a:hover {
+      opacity: 0.7;
+    }
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+    section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 100px 20px 60px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 30px;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      margin-top: 40px;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(5px);
+      border-radius: 15px;
+      padding: 30px;
+      width: 280px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: default;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    .card h3 {
+      margin-bottom: 10px;
+    }
+    .contacts a {
+      color: #fff;
+      text-decoration: underline;
+      margin: 0 10px;
+    }
+    @media (max-width: 768px) {
+      .menu-btn {
+        display: block;
+      }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 30px;
+        background: rgba(0,0,0,0.8);
+        padding: 20px;
+        border-radius: 10px;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Портфолио</div>
+    <button class="menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</button>
+    <ul class="nav-links">
+      <li><a href="#about">О себе</a></li>
+      <li><a href="#works">Работы</a></li>
+      <li><a href="#contacts">Контакты</a></li>
+    </ul>
+  </nav>
+
+  <section id="about" class="fade-in">
+    <h1>Привет, я Павел</h1>
+    <p>3D artist, Texture (shading) artist, .</p>
+  </section>
+
+  <section id="works" class="fade-in">
+    <h2>Мои работы</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Проект 1</h3>
+        <p>Описание проекта. Кратко и понятно.</p>
+      </div>
+      <div class="card">
+        <h3>Проект 2</h3>
+        <p>Ещё один крутой проект.</p>
+      </div>
+      <div class="card">
+        <h3>Проект 3</h3>
+        <p>И третий проект для примера.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacts" class="fade-in">
+    <h2>Контакты</h2>
+    <p>Email: <a href="mailto:orlovpavel23@mail.ru">orlovpavel23_mail.ru</a></p>
+    <p>Telegram: @folkonebass</p>
+  </section>
+
+  <script>
+    // Анимация появления при скролле
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Плавный скролл по якорям
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+        // Закрыть меню на мобильном
+        document.querySelector('.nav-links').classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
