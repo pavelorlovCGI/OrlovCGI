@@ -113,6 +113,10 @@
       text-decoration: underline;
       margin: 0 10px;
     }
+    /* Скрытые карточки (остаются в DOM для галереи) */
+    .hidden-card {
+      display: none;
+    }
     /* Lightbox */
     #lightbox {
       display: none;
@@ -208,38 +212,40 @@
   </section>
 
   <section id="works" class="fade-in">
-   <h2>Мои работы</h2>
+    <h2>Мои работы</h2>
     <div class="cards">
+      <!-- Видимая карточка -->
       <div class="card">
         <h3>Рейхстаг</h3>
         <p>Texturing, Shading, Lighting</p>
         <img src="1-compressed.png" alt="Общий план" style="width:100%; border-radius:10px; cursor:pointer;" onclick="openLightbox('1-compressed.png')">
-        <img src="2-compressed.png" alt="Постановка в кадре" style="width:100%; border-radius:10px cursor:pointer;" onclick="openLightbox('2-compressed.png')">
+        <img src="2-compressed.png" alt="Постановка в кадре" style="width:100%; border-radius:10px; cursor:pointer;" onclick="openLightbox('2-compressed.png')">
         <img src="3-compressed.png" alt="Ближний план" style="width:100%; border-radius:10px; cursor:pointer;" onclick="openLightbox('3-compressed.png')">
         <img src="reichstag3-compressed.png" alt="Референсное изображение локации" style="width:100%; border-radius:10px; cursor:pointer;" onclick="openLightbox('reichstag3-compressed.png')">
       </div>
-      <div class="card">
+      <!-- Скрытые карточки (доступны только в галерее) -->
+      <div class="card hidden-card">
         <h3>Пропсы</h3>
         <p>Texturing</p>
         <img src="1.jpg" alt="Turkish_woman_dress" style="width:100%; border-radius:10px; cursor:pointer;" onclick="openLightbox('1.jpg')">
-        <img src="2.jpg" alt="Turkish_woman_dress_2" style="width:100%; border-radius:10px cursor:pointer;" onclick="openLightbox('2.jpg')">
+        <img src="2.jpg" alt="Turkish_woman_dress_2" style="width:100%; border-radius:10px; cursor:pointer;" onclick="openLightbox('2.jpg')">
         <img src="3.jpg" alt="Turkish_woman_dress_3" style="width:100%; border-radius:10px; cursor:pointer;" onclick="openLightbox('3.jpg')">
         <img src="5.jpg" alt="Industrial_tower" style="width:100%; border-radius:10px; cursor:pointer;" onclick="openLightbox('5.jpg')">
         <img src="azat_horse_shade_001-compressed.png" alt="Horse_1" style="width:100%; border-radius:10px; cursor:pointer;" onclick="openLightbox('azat_horse_shade_001-compressed.png')">
-        <img src="bulat_horse_shade_001-compressed.png" alt="Horse_2" style="width:100%; border-radius:10px cursor:pointer;" onclick="openLightbox('bulat_horse_shade_001-compressed.png')">
+        <img src="bulat_horse_shade_001-compressed.png" alt="Horse_2" style="width:100%; border-radius:10px; cursor:pointer;" onclick="openLightbox('bulat_horse_shade_001-compressed.png')">
         <img src="shaimuratov_horse_shade_001-compressed.png" alt="Horse_3" style="width:100%; border-radius:10px; cursor:pointer;" onclick="openLightbox('shaimuratov_horse_shade_001-compressed.png')">
         <img src="ural_horse_shade_001-compressed.png" alt="Horse_4" style="width:100%; border-radius:10px; cursor:pointer;" onclick="openLightbox('ural_horse_shade_001-compressed.png')">
         <img src="yulai_horse_shade_001-compressed.png" alt="Horse_5" style="width:100%; border-radius:10px; cursor:pointer;" onclick="openLightbox('yulai_horse_shade_001-compressed.png')">
-        <img src="p1.PNG" alt="Pilot_uniform" style="width:100%; border-radius:10px cursor:pointer;" onclick="openLightbox('p1.PNG')">
+        <img src="p1.PNG" alt="Pilot_uniform" style="width:100%; border-radius:10px; cursor:pointer;" onclick="openLightbox('p1.PNG')">
         <img src="p3.PNG" alt="Pilot_uniform_2" style="width:100%; border-radius:10px; cursor:pointer;" onclick="openLightbox('p3.PNG')">
         <img src="p4.PNG" alt="Pilot_uniform_3" style="width:100%; border-radius:10px; cursor:pointer;" onclick="openLightbox('p4.PNG')">
         <img src="p5.PNG" alt="Pilot_uniform_4" style="width:100%; border-radius:10px; cursor:pointer;" onclick="openLightbox('p5.PNG')">
       </div>
-      <div class="card">
+      <div class="card hidden-card">
         <h3>Lighting and Render</h3>
         <p></p>
         <img src="363170.png" alt="CloseUp" style="width:100%; border-radius:10px; cursor:pointer;" onclick="openLightbox('363170.png')">
-        <img src="ep015_sc003_sh210_comp_v001.png" alt="DayShot" style="width:100%; border-radius:10px cursor:pointer;" onclick="openLightbox('ep015_sc003_sh210_comp_v001.png')">
+        <img src="ep015_sc003_sh210_comp_v001.png" alt="DayShot" style="width:100%; border-radius:10px; cursor:pointer;" onclick="openLightbox('ep015_sc003_sh210_comp_v001.png')">
         <img src="ep023_sc001_sh140_comp_v004.0001.png" alt="NightShot" style="width:100%; border-radius:10px; cursor:pointer;" onclick="openLightbox('ep023_sc001_sh140_comp_v004.0001.png')">
         <img src="ep029_sc002_sh070_comp_v001.0103.png" alt="SoftLight" style="width:100%; border-radius:10px; cursor:pointer;" onclick="openLightbox('ep029_sc002_sh070_comp_v001.0103.png')">
         <img src="ep035_sc001_sh200_comp_v001.01.png" alt="FireLight" style="width:100%; border-radius:10px; cursor:pointer;" onclick="openLightbox('ep035_sc001_sh200_comp_v001.01.png')">
@@ -258,7 +264,7 @@
     let galleryImages = [];
     let currentIndex = 0;
 
-    // Функция для сбора всех изображений из #works
+    // Функция для сбора всех изображений из #works (включая скрытые)
     function collectWorksImages() {
       const imgs = document.querySelectorAll('#works .card img');
       galleryImages = Array.from(imgs).map(img => img.src);
@@ -273,7 +279,7 @@
       document.getElementById('lightbox').style.display = 'flex';
     }
 
-    // Открыть lightbox с конкретным изображением (для клика по картинке)
+    // Открыть lightbox с конкретным изображением
     function openLightbox(src) {
       collectWorksImages();
       const idx = galleryImages.indexOf(src);
@@ -296,14 +302,14 @@
       showImage(currentIndex);
     }
 
-    // Закрытие по Escape
+    // Закрытие по Escape, навигация стрелками
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') closeLightbox();
       if (e.key === 'ArrowLeft') changeImage(-1);
       if (e.key === 'ArrowRight') changeImage(1);
     });
 
-    // Сбор изображений при загрузке (для работы openLightbox)
+    // Сбор изображений при загрузке
     collectWorksImages();
 
     // Анимация появления при скролле
@@ -316,13 +322,10 @@
     }, { threshold: 0.2 });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-    // Плавный скролл по якорям (кроме #works, так как там теперь onclick)
+    // Плавный скролл по якорям (кроме #works)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
-        if (this.getAttribute('href') === '#works') {
-          // уже обработано в onclick
-          return;
-        }
+        if (this.getAttribute('href') === '#works') return;
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
