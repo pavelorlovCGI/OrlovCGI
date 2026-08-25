@@ -132,6 +132,28 @@
       text-decoration: underline;
       margin: 0 10px;
     }
+    /* Контакты с иконками */
+    .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 10px 0;
+    }
+    .contact-item img {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      vertical-align: middle;
+    }
+    .contact-item a {
+      color: #fff;
+      text-decoration: underline;
+      font-size: 1.1rem;
+    }
+    .contact-item a:hover {
+      opacity: 0.7;
+    }
     /* Кнопка "Написать мне" */
     .btn-write {
       display: inline-block;
@@ -345,6 +367,10 @@
         padding: 12px 30px;
         font-size: 1rem;
       }
+      .contact-item img {
+        width: 24px;
+        height: 24px;
+      }
     }
   </style>
 </head>
@@ -490,8 +516,16 @@
 
   <section id="contacts" class="fade-in">
     <h2>Контакты</h2>
-    <p>Email: <a href="mailto:orlovpavel23@mail.ru">orlovpavel23_mail.ru</a></p>
-    <p>Telegram: @folkonebass</p>
+    
+    <div class="contact-item">
+      <img src="mail.jpg" alt="Email">
+      <a href="mailto:orlovpavel23@mail.ru">orlovpavel23@mail.ru</a>
+    </div>
+    
+    <div class="contact-item">
+      <img src="tg.jpg" alt="Telegram">
+      <a href="https://t.me/folkonebass" target="_blank">@folkonebass</a>
+    </div>
     
     <!-- Кнопка "Написать мне" -->
     <a href="mailto:orlovpavel23@mail.ru" class="btn-write">Написать мне</a>
