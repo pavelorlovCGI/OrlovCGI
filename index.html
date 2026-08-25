@@ -13,7 +13,14 @@
     }
     body {
       font-family: 'Montserrat', sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: #1a1a2e;
+      background: linear-gradient(
+        90deg,
+        rgba(100, 50, 30, 0.15) 0%,
+        #1a1a2e 15%,
+        #1a1a2e 85%,
+        rgba(100, 50, 30, 0.15) 100%
+      );
       color: #fff;
       line-height: 1.6;
       scroll-behavior: smooth;
@@ -279,7 +286,6 @@
     }
 
     function openLightbox(src) {
-      // Поиск изображения во всех разделах
       for (const [section, images] of Object.entries(sections)) {
         const idx = images.indexOf(src);
         if (idx !== -1) {
@@ -306,14 +312,12 @@
       showImage(currentIndex);
     }
 
-    // Закрытие по Escape, навигация стрелками
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') closeLightbox();
       if (e.key === 'ArrowLeft') changeImage(-1);
       if (e.key === 'ArrowRight') changeImage(1);
     });
 
-    // Анимация появления при скролле
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -323,7 +327,6 @@
     }, { threshold: 0.2 });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-    // Плавный скролл по якорям
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
