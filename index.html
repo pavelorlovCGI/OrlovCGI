@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pavel Orlov</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pavel Orlov — Texture/Shading Artist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
+    /* ===== RESET & BASE ===== */
     * {
       margin: 0;
       padding: 0;
@@ -14,14 +15,8 @@
     body {
       font-family: 'Montserrat', sans-serif;
       background-image: 
-        linear-gradient(
-          90deg,
-          rgba(255, 255, 255, 0.05) 0%,
-          transparent 15%,
-          transparent 85%,
-          rgba(255, 255, 255, 0.05) 100%
-        ),
-        linear-gradient(rgba(26, 26, 46, 0.75), rgba(26, 26, 46, 0.75)),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 0%, transparent 15%, transparent 85%, rgba(255,255,255,0.05) 100%),
+        linear-gradient(rgba(26,26,46,0.75), rgba(26,26,46,0.75)),
         url('background.jpg');
       background-size: cover;
       background-position: center;
@@ -31,6 +26,7 @@
       line-height: 1.6;
       scroll-behavior: smooth;
     }
+    /* ===== NAVIGATION ===== */
     nav {
       position: fixed;
       top: 0;
@@ -43,9 +39,6 @@
       align-items: center;
       z-index: 100;
     }
-    .logo {
-      display: none;
-    }
     .nav-links {
       display: flex;
       gap: 30px;
@@ -56,6 +49,7 @@
       text-decoration: none;
       transition: opacity 0.3s;
       cursor: pointer;
+      font-weight: 600;
     }
     .nav-links a:hover {
       opacity: 0.7;
@@ -68,23 +62,63 @@
       font-size: 1.8rem;
       cursor: pointer;
     }
+    /* ===== SECTIONS ===== */
     section {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 60px 20px 30px;
+      padding: 80px 20px 40px;
       text-align: center;
     }
-    h1 {
+    /* ===== HERO (главный экран) ===== */
+    #hero {
+      justify-content: center;
+      padding-top: 60px;
+      position: relative;
+    }
+    .hero-banner {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      position: relative;
+    }
+    .hero-banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s;
+    }
+    .hero-banner:hover img {
+      transform: scale(1.02);
+    }
+    .hero-title {
+      margin-top: 30px;
       font-size: 3rem;
-      margin-bottom: 15px;
+      font-weight: 700;
+      letter-spacing: 1px;
     }
-    h2 {
-      font-size: 2.2rem;
-      margin-bottom: 20px;
+    .hero-subtitle {
+      font-size: 1.4rem;
+      opacity: 0.9;
+      margin-top: 10px;
+      font-weight: 400;
     }
+    .hero-tagline {
+      font-size: 1.2rem;
+      opacity: 0.8;
+      margin-top: 15px;
+      border-top: 2px solid rgba(255,255,255,0.2);
+      padding-top: 20px;
+      display: inline-block;
+    }
+    /* ===== ОБЩИЕ ===== */
+    h1 { font-size: 2.8rem; margin-bottom: 15px; }
+    h2 { font-size: 2.2rem; margin-bottom: 20px; }
     .fade-in {
       opacity: 0;
       transform: translateY(30px);
@@ -94,6 +128,102 @@
       opacity: 1;
       transform: translateY(0);
     }
+    /* ===== О СЕБЕ ===== */
+    .about-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      align-items: flex-start;
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .about-text {
+      flex: 2 1 400px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(5px);
+      border-radius: 15px;
+      padding: 30px;
+    }
+    .about-text p {
+      margin-bottom: 12px;
+    }
+    .about-text strong {
+      color: #ffcc66;
+    }
+    .about-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      flex: 0 0 200px;
+    }
+    .stat-box {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(5px);
+      border-radius: 15px;
+      padding: 20px 15px;
+      text-align: center;
+    }
+    .stat-box h3 {
+      font-size: 1.6rem;
+      margin-bottom: 5px;
+    }
+    .stat-box p {
+      font-size: 0.95rem;
+      opacity: 0.8;
+    }
+    /* ===== НАВЫКИ ===== */
+    .skills-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .skills-subtitle {
+      font-size: 1.4rem;
+      margin: 40px 0 20px;
+      opacity: 0.9;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      padding-bottom: 10px;
+      display: inline-block;
+    }
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .skill-item {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(5px);
+      border-radius: 15px;
+      padding: 18px 15px;
+      width: 160px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .skill-item:hover {
+      transform: translateY(-5px);
+    }
+    .skill-item .skill-icon {
+      font-size: 28px;
+      margin-bottom: 6px;
+      display: block;
+    }
+    .skill-item p {
+      font-size: 0.85rem;
+      opacity: 0.9;
+      margin-bottom: 4px;
+    }
+    .skill-item .level {
+      font-size: 0.75rem;
+      opacity: 0.6;
+      background: rgba(255,255,255,0.1);
+      padding: 2px 10px;
+      border-radius: 20px;
+      display: inline-block;
+    }
+    /* ===== РАБОТЫ ===== */
     .cards {
       display: flex;
       flex-wrap: wrap;
@@ -105,40 +235,55 @@
       background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(5px);
       border-radius: 15px;
-      padding: 25px;
+      padding: 20px;
       width: 380px;
       transition: transform 0.3s, box-shadow 0.3s;
       cursor: default;
+      text-align: left;
     }
     .card:hover {
-      transform: translateY(-10px);
+      transform: translateY(-8px);
       box-shadow: 0 20px 40px rgba(0,0,0,0.3);
     }
     .card h3 {
-      margin-bottom: 8px;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
+      margin-bottom: 4px;
     }
-    .card p {
-      font-size: 1rem;
-      margin-bottom: 10px;
+    .card .project-meta {
+      font-size: 0.9rem;
+      opacity: 0.7;
+      margin-bottom: 8px;
+    }
+    .card .project-desc {
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+    }
+    .card .project-tools {
+      font-size: 0.85rem;
+      opacity: 0.8;
+      margin-bottom: 12px;
     }
     .card img {
-      margin-bottom: 8px;
       width: 100%;
-      height: auto;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s;
     }
-    .contacts a {
-      color: #fff;
-      text-decoration: underline;
-      margin: 0 10px;
+    .card img:hover {
+      transform: scale(1.02);
     }
-    /* Контакты с иконками */
+    /* ===== КОНТАКТЫ ===== */
+    .contacts-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
     .contact-item {
       display: flex;
       align-items: center;
-      justify-content: center;
       gap: 12px;
-      margin: 10px 0;
     }
     .contact-item img {
       width: 28px;
@@ -150,35 +295,45 @@
       color: #fff;
       text-decoration: underline;
       font-size: 1.1rem;
+      transition: opacity 0.3s;
     }
     .contact-item a:hover {
       opacity: 0.7;
     }
-    /* Кнопка "Написать мне" */
-    .btn-write {
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+    .btn {
       display: inline-block;
       background: #0066cc;
       color: #fff;
-      padding: 15px 40px;
+      padding: 14px 35px;
       border-radius: 30px;
       text-decoration: none;
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: 1rem;
       transition: all 0.3s ease;
-      margin-top: 30px;
       border: none;
       cursor: pointer;
       box-shadow: 0 4px 15px rgba(0, 102, 204, 0.4);
     }
-    .btn-write:hover {
+    .btn:hover {
       background: #0052a3;
       transform: translateY(-3px);
       box-shadow: 0 6px 25px rgba(0, 102, 204, 0.6);
     }
-    .btn-write:active {
-      transform: translateY(0);
+    .btn-secondary {
+      background: rgba(255,255,255,0.15);
+      box-shadow: none;
     }
-    /* Lightbox */
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.25);
+    }
+    /* ===== LIGHTBOX ===== */
     #lightbox {
       display: none;
       position: fixed;
@@ -205,19 +360,16 @@
       font-size: 3rem;
       cursor: pointer;
       user-select: none;
-      padding: 10px;
+      padding: 10px 15px;
       background: rgba(0,0,0,0.5);
       border-radius: 5px;
+      transition: background 0.3s;
     }
     .lightbox-nav:hover {
       background: rgba(0,0,0,0.8);
     }
-    .lightbox-prev {
-      left: 20px;
-    }
-    .lightbox-next {
-      right: 20px;
-    }
+    .lightbox-prev { left: 20px; }
+    .lightbox-next { right: 20px; }
     .lightbox-close {
       position: absolute;
       top: 20px;
@@ -227,122 +379,33 @@
       cursor: pointer;
       user-select: none;
     }
-    /* Блок "Обо мне" */
-    .about-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 25px;
-      justify-content: center;
-      align-items: flex-start;
-      max-width: 1000px;
-      margin: 0 auto;
-      text-align: left;
-    }
-    .about-text {
-      flex: 1 1 400px;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(5px);
-      border-radius: 15px;
-      padding: 25px;
-    }
-    .about-text p {
-      margin-bottom: 12px;
-    }
-    .about-stats {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      flex: 0 0 200px;
-    }
-    .stat-box {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(5px);
-      border-radius: 15px;
-      padding: 15px;
-      text-align: center;
-    }
-    .stat-box h3 {
-      font-size: 1.5rem;
-      margin-bottom: 5px;
-    }
-    .stat-box p {
-      font-size: 0.9rem;
-      opacity: 0.8;
-    }
-    /* Раздел навыков */
-    .skills-container {
-      max-width: 1000px;
-      margin: 0 auto;
-      width: 100%;
-    }
-    .skills-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-      margin-top: 30px;
-    }
-    .skill-item {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(5px);
-      border-radius: 15px;
-      padding: 18px;
-      width: 160px;
-      text-align: center;
-      transition: transform 0.3s;
-    }
-    .skill-item:hover {
-      transform: translateY(-5px);
-    }
-    .skill-icon {
-      width: 60px;
-      height: 60px;
-      background: rgba(255,255,255,0.15);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 8px;
-      font-size: 24px;
-      overflow: hidden;
-      padding: 8px;
-    }
-    .skill-icon img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-    .skill-item p {
-      font-size: 0.85rem;
-      opacity: 0.9;
-    }
-    .skills-subtitle {
-      font-size: 1.3rem;
-      margin: 30px 0 15px;
-      opacity: 0.9;
-    }
+    /* ===== АДАПТИВ ===== */
     @media (max-width: 768px) {
       .menu-btn {
         display: block;
       }
       nav {
         justify-content: space-between;
+        padding: 12px 20px;
       }
       .nav-links {
         display: none;
         flex-direction: column;
         position: absolute;
         top: 60px;
-        right: 30px;
-        background: rgba(0,0,0,0.8);
-        padding: 20px;
+        right: 20px;
+        background: rgba(0,0,0,0.85);
+        padding: 20px 30px;
         border-radius: 10px;
+        gap: 15px;
       }
       .nav-links.active {
         display: flex;
       }
+      .hero-title { font-size: 2.2rem; }
+      .hero-subtitle { font-size: 1.1rem; }
       h1 { font-size: 2rem; }
-      h2 { font-size: 1.8rem; }
+      h2 { font-size: 1.6rem; }
       .about-container {
         flex-direction: column;
         align-items: center;
@@ -352,20 +415,25 @@
         flex-wrap: wrap;
         justify-content: center;
         flex: none;
+        width: 100%;
+      }
+      .stat-box {
+        flex: 1 1 120px;
       }
       .skill-item {
         width: 130px;
+        padding: 14px 10px;
       }
       .card {
         width: 100%;
         max-width: 380px;
       }
       section {
-        padding: 50px 15px 20px;
+        padding: 60px 15px 30px;
       }
-      .btn-write {
-        padding: 12px 30px;
-        font-size: 1rem;
+      .btn {
+        padding: 12px 25px;
+        font-size: 0.95rem;
       }
       .contact-item img {
         width: 24px;
@@ -375,162 +443,238 @@
   </style>
 </head>
 <body>
-  <!-- Lightbox для галереи -->
+
+  <!-- ===== LIGHTBOX ===== -->
   <div id="lightbox" onclick="closeLightbox()">
     <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
     <span class="lightbox-nav lightbox-prev" onclick="changeImage(-1)">&#8249;</span>
-    <img id="lightbox-img" src="" alt="lightbox">
+    <img id="lightbox-img" src="" alt="lightbox" />
     <span class="lightbox-nav lightbox-next" onclick="changeImage(1)">&#8250;</span>
   </div>
 
+  <!-- ===== НАВИГАЦИЯ ===== -->
   <nav>
     <button class="menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</button>
     <ul class="nav-links">
+      <li><a href="#hero">Главная</a></li>
       <li><a href="#about">О себе</a></li>
       <li><a href="#skills">Навыки</a></li>
-      <li><a href="#works">Мои работы</a></li>
+      <li><a href="#works">Работы</a></li>
       <li><a href="#contacts">Контакты</a></li>
     </ul>
   </nav>
 
+  <!-- ===== HERO ===== -->
+  <section id="hero" class="fade-in">
+    <div class="hero-banner">
+      <!-- Здесь вставь свою лучшую работу (замени на свой файл) -->
+      <img src="1-compressed.png" alt="Моя лучшая текстурная работа" />
+    </div>
+    <h1 class="hero-title">Павел Орлов</h1>
+    <p class="hero-subtitle">Texture / Shading Artist</p>
+    <span class="hero-tagline">Текстуры, которые рассказывают истории</span>
+  </section>
+
+  <!-- ===== О СЕБЕ ===== -->
   <section id="about" class="fade-in">
-    <h1>Привет, я Павел</h1>
-    
-    <!-- Блок -->
-    <div style="margin-top: 30px; width: 100%;">
-      <p style="font-size: 1.5rem; margin-bottom: 20px;">3D artist, Texture (shading) artist</p>
-      <div class="about-container">
-        <div class="about-text">
-          <p>Мой путь в 3D-графике длится более 4 лет, из них 2 года я успешно работаю на коммерческой основе. Прошел через создание полнометражной анимации и эпизодов для сериалов, а также развивался в инди-геймдеве на позиции Generalist. Мой стек: Modelling, Texturing, Shading, Lighting и Render. Убежден, что невыполнимых задач не существует. Главное - системный подход. Могу похвастаться жестким контролем качества и своевременной сдачей проектов при любом формате занятости (включая удаленку).</p>
+    <h2>О себе</h2>
+    <div class="about-container">
+      <div class="about-text">
+        <p><strong>4+ лет</strong> в 3D-графике, из них <strong>2 года</strong> коммерческого опыта.</p>
+        <p>Участвовал в создании <strong>полнометражного анимационного фильма</strong> и эпизодов для сериалов. Работал над текстурами и шейдингом персонажей и окружения.</p>
+        <p>Владею полным пайплайном: от моделирования до рендера, но моя главная специализация — <strong>текстурирование и шейдинг</strong> в PBR (Metallic/Roughness).</p>
+        <p>Активно использую <strong>процедурные техники</strong> (генерация через шумы в Maya) для быстрого создания сложных материалов, а также оптимизирую текстуры (например, сжатие 4K → 2K без потери качества).</p>
+        <p>Умею <strong>рассказывать истории через текстуры</strong>: добавляю повреждения, грязь, царапины в правильные каналы (нормали, альбедо, шероховатость), чтобы каждый объект имел свою «биографию».</p>
+        <p>Всегда ищу технические компромиссы в команде: использую триплан-проекции, вертекс-пейнт и декали, чтобы сохранить художественный замысел при любых ограничениях.</p>
+      </div>
+      <div class="about-stats">
+        <div class="stat-box">
+          <h3>4+ лет</h3>
+          <p>опыта в 3D</p>
         </div>
-        <div class="about-stats">
-          <div class="stat-box">
-            <h3>4+ лет</h3>
-            <p>опыта</p>
-          </div>
-          <div class="stat-box">
-            <h3>Full-length</h3>
-            <p>cartoon & Gamedev</p>
-          </div>
+        <div class="stat-box">
+          <h3>2+ года</h3>
+          <p>коммерческой работы</p>
+        </div>
+        <div class="stat-box">
+          <h3>Full-length</h3>
+          <p>cartoon &amp; Gamedev</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Новый раздел "Навыки" -->
+  <!-- ===== НАВЫКИ ===== -->
   <section id="skills" class="fade-in">
-    <h2>Soft and Competencies</h2>
+    <h2>Навыки</h2>
     <div class="skills-container">
-      <p class="skills-subtitle">Soft</p>
+
+      <p class="skills-subtitle">🖥 Программное обеспечение</p>
       <div class="skills-grid">
         <div class="skill-item">
-          <div class="skill-icon">
-            <img src="maya.png" alt="Maya">
-          </div>
+          <span class="skill-icon">🎨</span>
           <p>Maya</p>
+          <span class="level">Продвинутый</span>
         </div>
         <div class="skill-item">
-          <div class="skill-icon">
-            <img src="blender3d.png" alt="Blender 3D">
-          </div>
-          <p>Blender 3D</p>
-        </div>
-        <div class="skill-item">
-          <div class="skill-icon">
-            <img src="Painter.png" alt="Substance 3D Painter">
-          </div>
+          <span class="skill-icon">🖌</span>
           <p>Substance 3D Painter</p>
+          <span class="level">Продвинутый</span>
         </div>
         <div class="skill-item">
-          <div class="skill-icon">
-            <img src="Adobe-Substance-3D-Designer-Logo.png" alt="Substance 3D Designer">
-          </div>
+          <span class="skill-icon">🧩</span>
           <p>Substance 3D Designer</p>
+          <span class="level">Средний</span>
         </div>
         <div class="skill-item">
-          <div class="skill-icon">
-            <img src="marmoset.jpg" alt="Marmoset Toolbag">
-          </div>
+          <span class="skill-icon">🛠</span>
           <p>Marmoset Toolbag</p>
+          <span class="level">Средний</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-icon">📐</span>
+          <p>Blender 3D</p>
+          <span class="level">Базовый</span>
         </div>
       </div>
 
-      <p class="skills-subtitle">Competenies</p>
+      <p class="skills-subtitle">⚡ Компетенции</p>
       <div class="skills-grid">
         <div class="skill-item">
-          <div class="skill-icon">🔷</div>
-          <p>Modelling</p>
+          <span class="skill-icon">🔲</span>
+          <p>PBR Texturing</p>
+          <span class="level">Metallic/Roughness</span>
         </div>
         <div class="skill-item">
-          <div class="skill-icon">🎨</div>
-          <p>Texturing</p>
+          <span class="skill-icon">📏</span>
+          <p>UV Mapping &amp; Layout</p>
+          <span class="level">Оптимизация</span>
         </div>
         <div class="skill-item">
-          <div class="skill-icon">✨</div>
-          <p>Shading</p>
+          <span class="skill-icon">✨</span>
+          <p>Shading &amp; Materials</p>
+          <span class="level">Диэлектрики / металлы</span>
         </div>
         <div class="skill-item">
-          <div class="skill-icon">💡</div>
-          <p>Lighting</p>
+          <span class="skill-icon">💡</span>
+          <p>Lighting &amp; Render</p>
+          <span class="level">Maya / Marmoset</span>
         </div>
         <div class="skill-item">
-          <div class="skill-icon">🎬</div>
-          <p>Render</p>
+          <span class="skill-icon">⚙️</span>
+          <p>Оптимизация текстур</p>
+          <span class="level">Сжатие, мип-маппинг</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-icon">🌀</span>
+          <p>Процедурная генерация</p>
+          <span class="level">Шумы в Maya</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-icon">📖</span>
+          <p>Storytelling через текстуры</p>
+          <span class="level">Повреждения, грязь</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-icon">🖌</span>
+          <p>Vertex Paint &amp; Decals</p>
+          <span class="level">Детализация</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-icon">🧱</span>
+          <p>Trim Sheets</p>
+          <span class="level">Планирование атласов</span>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ===== МОИ РАБОТЫ ===== -->
   <section id="works" class="fade-in">
-    <h2>My Works</h2>
+    <h2>Мои работы</h2>
     <div class="cards">
+
+      <!-- Карточка 1: Рейхстаг -->
       <div class="card">
-        <h3>Full lenght</h3>
-        <p>Texturing, Shading, Lighting</p>
-        <img src="1-compressed.png" alt="Рейхстаг" style="width:100%; border-radius:10px; cursor:pointer;" onclick="openSectionGallery('reichstag')">
+        <h3>Полнометражный фильм «Рейхстаг»</h3>
+        <div class="project-meta">Текстурирование, шейдинг, освещение</div>
+        <p class="project-desc">Создание PBR-текстур и шейдеров для главных персонажей и окружения. Оптимизация текстур для финального рендера.</p>
+        <p class="project-tools"><strong>Инструменты:</strong> Substance Painter, Maya, Marmoset</p>
+        <img src="1-compressed.png" alt="Рейхстаг" onclick="openSectionGallery('reichstag')" />
       </div>
+
+      <!-- Карточка 2: Пропсы -->
       <div class="card">
-        <h3>Full lenght</h3>
-        <p>Texturing</p>
-        <img src="1.jpg" alt="Пропсы" style="width:100%; border-radius:10px; cursor:pointer;" onclick="openSectionGallery('props')">
+        <h3>Сериал «Пропсы»</h3>
+        <div class="project-meta">Текстурирование пропсов</div>
+        <p class="project-desc">Текстурирование более 50 объектов окружения: оружие, транспорт, предметы быта. Акцент на износ и историю каждого ассета.</p>
+        <p class="project-tools"><strong>Инструменты:</strong> Substance Painter, Maya</p>
+        <img src="1.jpg" alt="Пропсы" onclick="openSectionGallery('props')" />
       </div>
+
+      <!-- Карточка 3: Gamedev -->
       <div class="card">
-        <h3>Gamedev</h3>
-        <p>Game Development</p>
-        <img src="main_logo.jpg" alt="Gamedev" style="width:100%; border-radius:10px; cursor:pointer;" onclick="openSectionGallery('gamedev')">
+        <h3>Инди-игра (Gamedev)</h3>
+        <div class="project-meta">Текстурирование окружения</div>
+        <p class="project-desc">Разработка текстур для игровых уровней. Оптимизация с 4K до 2K без потери качества, использование триплан-проекций.</p>
+        <p class="project-tools"><strong>Инструменты:</strong> Substance Painter, Unreal Engine</p>
+        <img src="main_logo.jpg" alt="Gamedev" onclick="openSectionGallery('gamedev')" />
       </div>
+
+      <!-- Карточка 4: Cartoon series -->
       <div class="card">
-        <h3>Cartoon series</h3>
-        <p>3D Models & Texturing</p>
-        <img src="Kopeika1.jpg" alt="Kopeika" style="width:100%; border-radius:10px; cursor:pointer;" onclick="openSectionGallery('kopeika')">
+        <h3>Мультсериал «Копейка»</h3>
+        <div class="project-meta">3D-моделинг и текстурирование</div>
+        <p class="project-desc">Создание стилизованных персонажей и техники. Текстуры вручную с использованием процедурных масок.</p>
+        <p class="project-tools"><strong>Инструменты:</strong> Maya, Substance Painter</p>
+        <img src="Kopeika1.jpg" alt="Копейка" onclick="openSectionGallery('kopeika')" />
       </div>
+
+      <!-- Карточка 5: Lighting & Render -->
       <div class="card">
-        <h3>Full lenght</h3>
-        <p></p>
-        <img src="363170.png" alt="Lighting" style="width:100%; border-radius:10px; cursor:pointer;" onclick="openSectionGallery('lighting')">
+        <h3>Настройка освещения и рендер</h3>
+        <div class="project-meta">Lighting &amp; Render</div>
+        <p class="project-desc">Настройка света и финальный рендер сцен для мультипликации. Работа с HDR-окружением и пост-обработкой.</p>
+        <p class="project-tools"><strong>Инструменты:</strong> Maya, Arnold, Marmoset</p>
+        <img src="363170.png" alt="Lighting" onclick="openSectionGallery('lighting')" />
       </div>
+
     </div>
   </section>
 
+  <!-- ===== КОНТАКТЫ ===== -->
   <section id="contacts" class="fade-in">
     <h2>Контакты</h2>
-    
-    <div class="contact-item">
-      <img src="mail.jpg" alt="Email">
-      <a href="mailto:orlovpavel23@mail.ru">orlovpavel23@mail.ru</a>
+    <div class="contacts-block">
+      <div class="contact-item">
+        <img src="mail.jpg" alt="Email" />
+        <a href="mailto:orlovpavel23@mail.ru">orlovpavel23@mail.ru</a>
+      </div>
+      <div class="contact-item">
+        <img src="tg.jpg" alt="Telegram" />
+        <a href="https://t.me/folkonebass" target="_blank">@folkonebass</a>
+      </div>
+      <!-- Добавь свои ссылки на LinkedIn и ArtStation -->
+      <div class="contact-item">
+        <span style="font-size:1.2rem;">🔗</span>
+        <a href="#" target="_blank">LinkedIn (ссылка)</a>
+      </div>
+      <div class="contact-item">
+        <span style="font-size:1.2rem;">🎨</span>
+        <a href="#" target="_blank">ArtStation (ссылка)</a>
+      </div>
     </div>
-    
-    <div class="contact-item">
-      <img src="tg.jpg" alt="Telegram">
-      <a href="https://t.me/folkonebass" target="_blank">@folkonebass</a>
+
+    <div class="btn-group">
+      <a href="mailto:orlovpavel23@mail.ru" class="btn">Написать мне</a>
+      <!-- Замени href на путь к твоему резюме (PDF) -->
+      <a href="#" class="btn btn-secondary" download>Скачать резюме</a>
     </div>
-    
-    <!-- Кнопка "Написать мне" -->
-    <a href="mailto:orlovpavel23@mail.ru" class="btn-write">Написать мне</a>
   </section>
 
+  <!-- ===== СКРИПТЫ ===== -->
   <script>
-    // Массивы изображений для каждого раздела
+    // ===== ГАЛЕРЕИ =====
     const sections = {
       reichstag: [
         '1-compressed.png',
@@ -595,26 +739,12 @@
       document.getElementById('lightbox').style.display = 'flex';
     }
 
-    function openLightbox(src) {
-      for (const [section, images] of Object.entries(sections)) {
-        const idx = images.indexOf(src);
-        if (idx !== -1) {
-          currentImages = images;
-          currentIndex = idx;
-          showImage(currentIndex);
-          document.getElementById('lightbox').style.display = 'flex';
-          return;
-        }
-      }
-    }
-
     function closeLightbox() {
       document.getElementById('lightbox').style.display = 'none';
     }
 
     function showImage(index) {
-      const img = document.getElementById('lightbox-img');
-      img.src = currentImages[index];
+      document.getElementById('lightbox-img').src = currentImages[index];
     }
 
     function changeImage(direction) {
@@ -628,22 +758,28 @@
       if (e.key === 'ArrowRight') changeImage(1);
     });
 
+    // ===== ПЛАВНОЕ ПОЯВЛЕНИЕ =====
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
         }
       });
-    }, { threshold: 0.2 });
+    }, { threshold: 0.15 });
+
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
+    // ===== ПЛАВНЫЙ СКРОЛЛ ПО ЯКОРЯМ =====
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        const target = document.querySelector(targetId);
         if (target) {
           target.scrollIntoView({ behavior: 'smooth' });
         }
+        // Закрыть мобильное меню
         document.querySelector('.nav-links').classList.remove('active');
       });
     });
