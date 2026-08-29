@@ -345,7 +345,7 @@
       font-size: 0.9rem;
       opacity: 0.7;
     }
-    /* ===== ГАЛЕРЕЯ-СЕТКА (модальное окно) ===== */
+    /* ===== ГАЛЕРЕЯ-СЕТКА ===== */
     #gallery-modal {
       display: none;
       position: fixed;
@@ -402,7 +402,7 @@
       transform: scale(1.05);
       box-shadow: 0 0 20px rgba(255,255,255,0.3);
     }
-    /* ===== ЛАЙТБОКС (полноэкранный просмотр) ===== */
+    /* ===== ЛАЙТБОКС ===== */
     #lightbox {
       display: none;
       position: fixed;
@@ -609,20 +609,17 @@
       <span onclick="closeFolderModal()">&times;</span>
     </div>
     <div class="folder-grid">
-      <!-- Папка Рейхстаг -->
-      <div class="folder-item" onclick="openGalleryModal('reichstag')">
+      <div class="folder-item" onclick="openGalleryModal('reichstag', true)">
         <div class="folder-icon">🎬</div>
         <h3>Полнометражный фильм «Рейхстаг»</h3>
         <p>Текстурирование, шейдинг, освещение</p>
       </div>
-      <!-- Папка Пропсы -->
-      <div class="folder-item" onclick="openGalleryModal('props')">
+      <div class="folder-item" onclick="openGalleryModal('props', true)">
         <div class="folder-icon">🛠️</div>
         <h3>Сериал «Пропсы»</h3>
         <p>Текстурирование пропсов</p>
       </div>
-      <!-- Папка Lighting -->
-      <div class="folder-item" onclick="openGalleryModal('lighting')">
+      <div class="folder-item" onclick="openGalleryModal('lighting', true)">
         <div class="folder-icon">💡</div>
         <h3>Настройка освещения и рендера</h3>
         <p>Lighting &amp; Render</p>
@@ -630,7 +627,7 @@
     </div>
   </div>
 
-  <!-- ===== ГАЛЕРЕЯ-СЕТКА (изображения) ===== -->
+  <!-- ===== ГАЛЕРЕЯ-СЕТКА ===== -->
   <div id="gallery-modal">
     <div class="gallery-header">
       <h2 id="gallery-title">Галерея</h2>
@@ -639,7 +636,7 @@
     <div class="gallery-grid" id="gallery-grid"></div>
   </div>
 
-  <!-- ===== ЛАЙТБОКС (полноэкранный просмотр) ===== -->
+  <!-- ===== ЛАЙТБОКС ===== -->
   <div id="lightbox">
     <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
     <span class="lightbox-back" onclick="closeLightboxAndBack()">← Назад</span>
@@ -674,14 +671,34 @@
   <section id="works" class="fade-in">
     <h2>Мои работы</h2>
     <div class="cards">
-      <!-- Единственная карточка — главная папка -->
+
+      <!-- 1. Полнометражный мультфильм "Потомки Салавата" (с папками) -->
       <div class="card" onclick="openFolderModal()">
         <h3>Полнометражный мультфильм «Потомки Салавата»</h3>
         <div class="project-meta">Текстурирование, шейдинг, освещение, рендер</div>
         <p class="project-desc">Работы над полнометражным проектом: текстурирование персонажей и окружения, настройка материалов, освещение и финальный рендер.</p>
-        <p class="project-tools"><strong>Инструменты:</strong> Substance Painter, Maya, Marmoset, V-ray</p>
+        <p class="project-tools"><strong>Инструменты:</strong> Substance Painter, Maya, Marmoset, Arnold</p>
         <img src="1-compressed.png" alt="Потомки Салавата" />
       </div>
+
+      <!-- 2. Инди-игра (Gamedev) -->
+      <div class="card" onclick="openGalleryModal('gamedev', false)">
+        <h3>Инди-игра (Gamedev)</h3>
+        <div class="project-meta">Текстурирование окружения</div>
+        <p class="project-desc">Разработка текстур для игровых уровней. Оптимизация с 4K до 2K без потери качества, использование триплан-проекций.</p>
+        <p class="project-tools"><strong>Инструменты:</strong> Substance Painter, Unreal Engine</p>
+        <img src="main_logo.jpg" alt="Gamedev" />
+      </div>
+
+      <!-- 3. Мультсериал "Копейка" -->
+      <div class="card" onclick="openGalleryModal('kopeika', false)">
+        <h3>Мультсериал «Копейка»</h3>
+        <div class="project-meta">3D-моделинг и текстурирование</div>
+        <p class="project-desc">Создание стилизованных персонажей и техники. Текстуры вручную с использованием процедурных масок.</p>
+        <p class="project-tools"><strong>Инструменты:</strong> Maya, Substance Painter</p>
+        <img src="Kopeika1.jpg" alt="Копейка" />
+      </div>
+
     </div>
   </section>
 
@@ -782,20 +799,43 @@
         'ep023_sc001_sh140_comp_v004.0001.png',
         'ep029_sc002_sh070_comp_v001.0103.png',
         'ep035_sc001_sh200_comp_v001.01.png'
+      ],
+      gamedev: [
+        'main_logo.jpg',
+        'Render1.jpg',
+        'Render2.jpg',
+        'Render3.jpg',
+        'Render4.jpg',
+        'Render5.jpg'
+      ],
+      kopeika: [
+        'Frank1.jpg',
+        'Frank2.jpg',
+        'Zapik1.jpg',
+        'Zapik2.jpg',
+        'Zapik3.jpg',
+        'Bochka1.jpg',
+        'Bochka2.jpg',
+        'Bochka3.jpg',
+        'Fura1.jpg',
+        'Fura2.jpg',
+        'Kopeika1.jpg',
+        'Kopeika2.jpg'
       ]
     };
 
-    // Названия папок для заголовков
     const sectionTitles = {
       reichstag: 'Полнометражный фильм «Рейхстаг»',
       props: 'Сериал «Пропсы»',
-      lighting: 'Настройка освещения и рендера'
+      lighting: 'Настройка освещения и рендера',
+      gamedev: 'Инди-игра (Gamedev)',
+      kopeika: 'Мультсериал «Копейка»'
     };
 
     let currentSection = [];
     let currentIndex = 0;
     let currentSectionName = '';
-    let isFromFolder = false; // флаг, чтобы знать, откуда открыли лайтбокс
+    let isFromFolder = false; // флаг: пришли из папок или напрямую
 
     // ===== ОТКРЫТИЕ / ЗАКРЫТИЕ ПАПОК =====
     function openFolderModal() {
@@ -809,12 +849,13 @@
     }
 
     // ===== ОТКРЫТИЕ ГАЛЕРЕИ-СЕТКИ =====
-    function openGalleryModal(sectionName) {
+    function openGalleryModal(sectionName, fromFolder = false) {
       currentSectionName = sectionName;
       currentSection = sections[sectionName] || [];
       if (currentSection.length === 0) return;
 
-      // Устанавливаем заголовок
+      isFromFolder = fromFolder;
+
       document.getElementById('gallery-title').textContent = sectionTitles[sectionName] || sectionName;
 
       const grid = document.getElementById('gallery-grid');
@@ -826,14 +867,16 @@
         img.loading = 'lazy';
         img.addEventListener('click', function(e) {
           e.stopPropagation();
-          isFromFolder = true; // мы пришли из папок
           openLightboxFromGallery(idx);
         });
         grid.appendChild(img);
       });
 
-      // Закрываем папки (если открыты) и показываем галерею
-      closeFolderModal();
+      // Если открыто окно папок, закрываем его
+      if (document.getElementById('folder-modal').style.display === 'block') {
+        closeFolderModal();
+      }
+
       document.getElementById('gallery-modal').style.display = 'block';
       document.body.style.overflow = 'hidden';
     }
@@ -841,12 +884,9 @@
     function closeGalleryModal() {
       document.getElementById('gallery-modal').style.display = 'none';
       document.body.style.overflow = 'auto';
-      // Если мы пришли из папок, то после закрытия галереи можно показать папки обратно?
-      // Но обычно пользователь сам закроет и откроет папки заново. Оставляем как есть.
-      // При желании можно автоматически открыть папки, но это может раздражать.
     }
 
-    // ===== ОТКРЫТИЕ ЛАЙТБОКСА ИЗ ГАЛЕРЕИ =====
+    // ===== ОТКРЫТИЕ ЛАЙТБОКСА =====
     function openLightboxFromGallery(index) {
       if (!currentSection.length) return;
       currentIndex = index;
@@ -861,17 +901,18 @@
 
     function closeLightboxAndBack() {
       closeLightbox();
-      // Если мы пришли из папок, то показываем папки
       if (isFromFolder) {
+        // Возврат к папкам
         openFolderModal();
-        isFromFolder = false;
+        // Закрываем галерею, если она открыта
+        if (document.getElementById('gallery-modal').style.display === 'block') {
+          closeGalleryModal();
+        }
       } else {
-        // Иначе показываем галерею (если она была открыта)
+        // Возврат к галерее (она уже открыта, просто показываем её)
         if (document.getElementById('gallery-modal').style.display !== 'block') {
-          // если галерея не открыта, то открываем её (на всякий случай)
-          if (currentSectionName) {
-            openGalleryModal(currentSectionName);
-          }
+          // если галерея закрыта (редкий случай), открываем заново
+          openGalleryModal(currentSectionName, false);
         }
       }
     }
