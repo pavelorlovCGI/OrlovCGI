@@ -206,9 +206,14 @@
       transform: translateY(-5px);
     }
     .skill-item .skill-icon {
-      font-size: 28px;
-      margin-bottom: 6px;
+      /* Пустой квадрат — просто оставляем span без содержимого, но с размерами и фоном */
       display: block;
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 8px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 10px;
+      /* содержимое отсутствует */
     }
     .skill-item p {
       font-size: 0.85rem;
@@ -457,9 +462,9 @@
     <button class="menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</button>
     <ul class="nav-links">
       <li><a href="#hero">Главная</a></li>
-      <li><a href="#about">О себе</a></li>
+      <li><a href="#works">Работы</a></li>        <!-- теперь сначала работы -->
       <li><a href="#skills">Навыки</a></li>
-      <li><a href="#works">Работы</a></li>
+      <li><a href="#about">О себе</a></li>       <!-- затем о себе -->
       <li><a href="#contacts">Контакты</a></li>
     </ul>
   </nav>
@@ -467,7 +472,6 @@
   <!-- ===== HERO ===== -->
   <section id="hero" class="fade-in">
     <div class="hero-banner">
-      <!-- Здесь вставь свою лучшую работу (замени на свой файл) -->
       <img src="1-compressed.png" alt="Моя лучшая текстурная работа" />
     </div>
     <h1 class="hero-title">Павел Орлов</h1>
@@ -475,121 +479,7 @@
     <span class="hero-tagline">Текстуры, которые рассказывают истории</span>
   </section>
 
-  <!-- ===== О СЕБЕ ===== -->
-  <section id="about" class="fade-in">
-    <h2>О себе</h2>
-    <div class="about-container">
-      <div class="about-text">
-        <p><strong>4+ лет</strong> в 3D-графике, из них <strong>2 года</strong> коммерческого опыта.</p>
-        <p>Участвовал в создании <strong>полнометражного анимационного фильма</strong> и эпизодов для сериалов. Работал над текстурами и шейдингом персонажей и окружения.</p>
-        <p>Владею полным пайплайном: от моделирования до рендера, но моя главная специализация — <strong>текстурирование и шейдинг</strong> в PBR (Metallic/Roughness).</p>
-        <p>Активно использую <strong>процедурные техники</strong> (генерация через шумы в Maya) для быстрого создания сложных материалов, а также оптимизирую текстуры (например, сжатие 4K → 2K без потери качества).</p>
-        <p>Умею <strong>рассказывать истории через текстуры</strong>: добавляю повреждения, грязь, царапины в правильные каналы (нормали, альбедо, шероховатость), чтобы каждый объект имел свою «биографию».</p>
-        <p>Всегда ищу технические компромиссы в команде: использую триплан-проекции, вертекс-пейнт и декали, чтобы сохранить художественный замысел при любых ограничениях.</p>
-      </div>
-      <div class="about-stats">
-        <div class="stat-box">
-          <h3>4+ лет</h3>
-          <p>опыта в 3D</p>
-        </div>
-        <div class="stat-box">
-          <h3>2+ года</h3>
-          <p>коммерческой работы</p>
-        </div>
-        <div class="stat-box">
-          <h3>Full-length</h3>
-          <p>cartoon &amp; Gamedev</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== НАВЫКИ ===== -->
-  <section id="skills" class="fade-in">
-    <h2>Навыки</h2>
-    <div class="skills-container">
-
-      <p class="skills-subtitle">🖥 Программное обеспечение</p>
-      <div class="skills-grid">
-        <div class="skill-item">
-          <span class="skill-icon">🎨</span>
-          <p>Maya</p>
-          <span class="level">Продвинутый</span>
-        </div>
-        <div class="skill-item">
-          <span class="skill-icon">🖌</span>
-          <p>Substance 3D Painter</p>
-          <span class="level">Продвинутый</span>
-        </div>
-        <div class="skill-item">
-          <span class="skill-icon">🧩</span>
-          <p>Substance 3D Designer</p>
-          <span class="level">Средний</span>
-        </div>
-        <div class="skill-item">
-          <span class="skill-icon">🛠</span>
-          <p>Marmoset Toolbag</p>
-          <span class="level">Средний</span>
-        </div>
-        <div class="skill-item">
-          <span class="skill-icon">📐</span>
-          <p>Blender 3D</p>
-          <span class="level">Базовый</span>
-        </div>
-      </div>
-
-      <p class="skills-subtitle">⚡ Компетенции</p>
-      <div class="skills-grid">
-        <div class="skill-item">
-          <span class="skill-icon">🔲</span>
-          <p>PBR Texturing</p>
-          <span class="level">Metallic/Roughness</span>
-        </div>
-        <div class="skill-item">
-          <span class="skill-icon">📏</span>
-          <p>UV Mapping &amp; Layout</p>
-          <span class="level">Оптимизация</span>
-        </div>
-        <div class="skill-item">
-          <span class="skill-icon">✨</span>
-          <p>Shading &amp; Materials</p>
-          <span class="level">Диэлектрики / металлы</span>
-        </div>
-        <div class="skill-item">
-          <span class="skill-icon">💡</span>
-          <p>Lighting &amp; Render</p>
-          <span class="level">Maya / Marmoset</span>
-        </div>
-        <div class="skill-item">
-          <span class="skill-icon">⚙️</span>
-          <p>Оптимизация текстур</p>
-          <span class="level">Сжатие, мип-маппинг</span>
-        </div>
-        <div class="skill-item">
-          <span class="skill-icon">🌀</span>
-          <p>Процедурная генерация</p>
-          <span class="level">Шумы в Maya</span>
-        </div>
-        <div class="skill-item">
-          <span class="skill-icon">📖</span>
-          <p>Storytelling через текстуры</p>
-          <span class="level">Повреждения, грязь</span>
-        </div>
-        <div class="skill-item">
-          <span class="skill-icon">🖌</span>
-          <p>Vertex Paint &amp; Decals</p>
-          <span class="level">Детализация</span>
-        </div>
-        <div class="skill-item">
-          <span class="skill-icon">🧱</span>
-          <p>Trim Sheets</p>
-          <span class="level">Планирование атласов</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== МОИ РАБОТЫ ===== -->
+  <!-- ===== МОИ РАБОТЫ (теперь первым после hero) ===== -->
   <section id="works" class="fade-in">
     <h2>Мои работы</h2>
     <div class="cards">
@@ -642,6 +532,120 @@
     </div>
   </section>
 
+  <!-- ===== НАВЫКИ ===== -->
+  <section id="skills" class="fade-in">
+    <h2>Навыки</h2>
+    <div class="skills-container">
+
+      <p class="skills-subtitle">🖥 Программное обеспечение</p>
+      <div class="skills-grid">
+        <div class="skill-item">
+          <span class="skill-icon"></span>   <!-- пустой квадрат -->
+          <p>Maya</p>
+          <span class="level">Продвинутый</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-icon"></span>
+          <p>Substance 3D Painter</p>
+          <span class="level">Продвинутый</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-icon"></span>
+          <p>Substance 3D Designer</p>
+          <span class="level">Средний</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-icon"></span>
+          <p>Marmoset Toolbag</p>
+          <span class="level">Средний</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-icon"></span>
+          <p>Blender 3D</p>
+          <span class="level">Базовый</span>
+        </div>
+      </div>
+
+      <p class="skills-subtitle">⚡ Компетенции</p>
+      <div class="skills-grid">
+        <div class="skill-item">
+          <span class="skill-icon"></span>
+          <p>PBR Texturing</p>
+          <span class="level">Metallic/Roughness</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-icon"></span>
+          <p>UV Mapping &amp; Layout</p>
+          <span class="level">Оптимизация</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-icon"></span>
+          <p>Shading &amp; Materials</p>
+          <span class="level">Диэлектрики / металлы</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-icon"></span>
+          <p>Lighting &amp; Render</p>
+          <span class="level">Maya / Marmoset</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-icon"></span>
+          <p>Оптимизация текстур</p>
+          <span class="level">Сжатие, мип-маппинг</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-icon"></span>
+          <p>Процедурная генерация</p>
+          <span class="level">Шумы в Maya</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-icon"></span>
+          <p>Storytelling через текстуры</p>
+          <span class="level">Повреждения, грязь</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-icon"></span>
+          <p>Vertex Paint &amp; Decals</p>
+          <span class="level">Детализация</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-icon"></span>
+          <p>Trim Sheets</p>
+          <span class="level">Планирование атласов</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== О СЕБЕ (теперь после навыков) ===== -->
+  <section id="about" class="fade-in">
+    <h2>О себе</h2>
+    <div class="about-container">
+      <div class="about-text">
+        <p><strong>4+ лет</strong> в 3D-графике, из них <strong>2 года</strong> коммерческого опыта.</p>
+        <p>Участвовал в создании <strong>полнометражного анимационного фильма</strong> и эпизодов для сериалов. Работал над текстурами и шейдингом персонажей и окружения.</p>
+        <p>Владею полным пайплайном: от моделирования до рендера, но моя главная специализация — <strong>текстурирование и шейдинг</strong> в PBR (Metallic/Roughness).</p>
+        <p>Активно использую <strong>процедурные техники</strong> (генерация через шумы в Maya) для быстрого создания сложных материалов, а также оптимизирую текстуры (например, сжатие 4K → 2K без потери качества).</p>
+        <p>Умею <strong>рассказывать истории через текстуры</strong>: добавляю повреждения, грязь, царапины в правильные каналы (нормали, альбедо, шероховатость), чтобы каждый объект имел свою «биографию».</p>
+        <p>Всегда ищу технические компромиссы в команде: использую триплан-проекции, вертекс-пейнт и декали, чтобы сохранить художественный замысел при любых ограничениях.</p>
+      </div>
+      <div class="about-stats">
+        <div class="stat-box">
+          <h3>4+ лет</h3>
+          <p>опыта в 3D</p>
+        </div>
+        <div class="stat-box">
+          <h3>2+ года</h3>
+          <p>коммерческой работы</p>
+        </div>
+        <div class="stat-box">
+          <h3>Full-length</h3>
+          <p>cartoon &amp; Gamedev</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== КОНТАКТЫ ===== -->
   <section id="contacts" class="fade-in">
     <h2>Контакты</h2>
@@ -654,20 +658,11 @@
         <img src="tg.jpg" alt="Telegram" />
         <a href="https://t.me/folkonebass" target="_blank">@folkonebass</a>
       </div>
-      <!-- Добавь свои ссылки на LinkedIn и ArtStation -->
-      <div class="contact-item">
-        <span style="font-size:1.2rem;">🔗</span>
-        <a href="#" target="_blank">LinkedIn (ссылка)</a>
-      </div>
-      <div class="contact-item">
-        <span style="font-size:1.2rem;">🎨</span>
-        <a href="#" target="_blank">ArtStation (ссылка)</a>
-      </div>
+      <!-- LinkedIn и ArtStation удалены -->
     </div>
 
     <div class="btn-group">
       <a href="mailto:orlovpavel23@mail.ru" class="btn">Написать мне</a>
-      <!-- Замени href на путь к твоему резюме (PDF) -->
       <a href="#" class="btn btn-secondary" download>Скачать резюме</a>
     </div>
   </section>
@@ -779,7 +774,6 @@
         if (target) {
           target.scrollIntoView({ behavior: 'smooth' });
         }
-        // Закрыть мобильное меню
         document.querySelector('.nav-links').classList.remove('active');
       });
     });
