@@ -334,8 +334,23 @@
       box-shadow: 0 20px 40px rgba(0,0,0,0.3);
     }
     .folder-item .folder-icon {
-      font-size: 4rem;
+      /* Убираем font-size, теперь внутри картинка */
+      display: flex;
+      justify-content: center;
+      align-items: center;
       margin-bottom: 10px;
+    }
+    .folder-item .folder-icon img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid rgba(255,255,255,0.2);
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .folder-item:hover .folder-icon img {
+      transform: scale(1.05);
+      border-color: rgba(255,255,255,0.6);
     }
     .folder-item h3 {
       font-size: 1.3rem;
@@ -594,8 +609,9 @@
         width: 200px;
         padding: 20px 15px;
       }
-      .folder-item .folder-icon {
-        font-size: 3rem;
+      .folder-item .folder-icon img {
+        width: 60px;
+        height: 60px;
       }
     }
   </style>
@@ -609,18 +625,27 @@
       <span onclick="closeFolderModal()">&times;</span>
     </div>
     <div class="folder-grid">
+      <!-- Папка Location Reichstag -->
       <div class="folder-item" onclick="openGalleryModal('reichstag', true)">
-        <div class="folder-icon">🎬</div>
+        <div class="folder-icon">
+          <img src="1-compressed.png" alt="Location Reichstag" />
+        </div>
         <h3>Location Reichstag</h3>
         <p>Текстурирование, шейдинг, освещение</p>
       </div>
+      <!-- Папка Props Texturing -->
       <div class="folder-item" onclick="openGalleryModal('props', true)">
-        <div class="folder-icon">🛠️</div>
+        <div class="folder-icon">
+          <img src="1.jpg" alt="Props Texturing" />
+        </div>
         <h3>Props Texturing</h3>
         <p>Текстурирование пропсов</p>
       </div>
+      <!-- Папка Lighting and render -->
       <div class="folder-item" onclick="openGalleryModal('lighting', true)">
-        <div class="folder-icon">💡</div>
+        <div class="folder-icon">
+          <img src="363170.png" alt="Lighting and render" />
+        </div>
         <h3>Lighting and render</h3>
         <p>Lighting &amp; Render</p>
       </div>
