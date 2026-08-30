@@ -54,6 +54,7 @@
       }
       .skill-item .skill-icon img {
         filter: none !important;
+        box-shadow: none !important;
       }
       .card img {
         max-width: 200px !important;
@@ -273,11 +274,11 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
-      filter: brightness(0) invert(1);
-      transition: filter 0.3s;
-    }
-    .skill-item:hover .skill-icon img {
-      filter: brightness(1) invert(0);
+      /* Убираем фильтры, оставляем естественные цвета */
+      filter: none;
+      transition: none;
+      /* Добавляем лёгкую тень для контраста на тёмном фоне (опционально) */
+      filter: drop-shadow(0 0 2px rgba(255,255,255,0.3));
     }
     .skill-item p {
       font-size: 0.85rem;
