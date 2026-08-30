@@ -26,6 +26,58 @@
       line-height: 1.6;
       scroll-behavior: smooth;
     }
+    /* ===== PRINT STYLES ===== */
+    @media print {
+      body {
+        background: #fff !important;
+        color: #000 !important;
+        background-image: none !important;
+      }
+      nav, .menu-btn, .btn-group, .btn, .lightbox-back, .lightbox-close, .lightbox-nav,
+      #folder-modal, #gallery-modal, #lightbox, .hero-banner, .hero-tagline {
+        display: none !important;
+      }
+      section {
+        min-height: auto !important;
+        padding: 20px !important;
+        page-break-inside: avoid;
+      }
+      .card, .skill-item, .about-text, .stat-box, .folder-item {
+        background: #f5f5f5 !important;
+        backdrop-filter: none !important;
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+        color: #000 !important;
+      }
+      .about-text strong, .card h3, .skill-item p, .stat-box h3 {
+        color: #000 !important;
+      }
+      .skill-item .skill-icon img {
+        filter: none !important;
+      }
+      .card img {
+        max-width: 200px !important;
+        height: auto !important;
+        pointer-events: none !important;
+      }
+      .contacts-block .contact-item a {
+        color: #000 !important;
+      }
+      h1, h2, .hero-title, .hero-subtitle {
+        color: #000 !important;
+      }
+      .fade-in {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .skills-grid, .cards {
+        gap: 15px !important;
+      }
+      .folder-item .folder-icon img {
+        width: 60px !important;
+        height: 60px !important;
+      }
+    }
     /* ===== NAVIGATION ===== */
     nav {
       position: fixed;
@@ -221,11 +273,11 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
-      filter: brightness(0) invert(1); /* делаем белыми для тёмного фона */
+      filter: brightness(0) invert(1);
       transition: filter 0.3s;
     }
     .skill-item:hover .skill-icon img {
-      filter: brightness(1) invert(0); /* возвращаем цвет при наведении */
+      filter: brightness(1) invert(0);
     }
     .skill-item p {
       font-size: 0.85rem;
@@ -807,7 +859,7 @@
     </div>
     <div class="btn-group">
       <a href="mailto:orlovpavel23@mail.ru" class="btn">Написать мне</a>
-      <a href="#" class="btn btn-secondary" download>Скачать резюме</a>
+      <button id="downloadPdfBtn" class="btn btn-secondary">Скачать резюме</button>
     </div>
   </section>
 
@@ -976,6 +1028,11 @@
         if (target) target.scrollIntoView({ behavior: 'smooth' });
         document.querySelector('.nav-links').classList.remove('active');
       });
+    });
+
+    // ===== КНОПКА СКАЧАТЬ PDF =====
+    document.getElementById('downloadPdfBtn').addEventListener('click', function() {
+      window.print();
     });
   </script>
 </body>
